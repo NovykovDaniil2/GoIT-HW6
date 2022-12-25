@@ -36,6 +36,9 @@ def normalize(file_name):
 
 #Recursive folder sort function
 def sorting_function(path):
+    for ignore_folder in ignore_folders:
+        if ignore_folder not in os.listdir(path):
+            os.mkdir(path + '\\' + ignore_folder)
     for elem in os.listdir(path):
         #The basic part
         if len(elem.split('.'))>1:
@@ -72,12 +75,8 @@ def sorting_function(path):
             os.rmdir(path + '\\' + elem)
         elif os.path.isdir(path+'\\'+elem) and elem not in ignore_folders:
             sorting_function(path+'\\'+ elem)
-    return 'The files were sorted successfully!'
 
-path=sys.argv[1]
-
-print(sorting_function(path))
-
-            
-
-
+def main():
+    sorting_function(sys.argv[1])
+if __name__ == '__main__':
+    main()
