@@ -8,7 +8,7 @@ users=[
     {'name':'Sue'  , 'birthday': datetime.datetime(year=2006 , month=10 , day=30) }
 ]
 
-def get_birthdays_per_week(users) -> None: 
+def get_birthdays_per_week(users : list) -> None: 
 
     result={
     'Monday': [],
