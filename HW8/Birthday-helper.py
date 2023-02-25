@@ -24,6 +24,7 @@ def get_birthdays_per_week(users) -> None:
     today = datetime.date.today()
 
     for i in users:
+
         if i.get('birthday').year == today.year and i.get('birthday').month == today.month and today.day <= i.get('birthday').day <= (today + datetime.timedelta(days=7)).day :
             
             #The current day of the week converted to the name of the day of the week in English

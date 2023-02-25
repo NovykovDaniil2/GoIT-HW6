@@ -25,7 +25,7 @@ numbers = ['1','2','3','4','5','6','7','8','9']
 
 
 #Function to normalize the file name
-def normalize(file_name):
+def normalize(file_name: str) -> str:
     for key in transliterate_dict:
         file_name = file_name.replace(key, transliterate_dict.get(key))
     for i in file_name:
