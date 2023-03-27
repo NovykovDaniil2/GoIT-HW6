@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "powerhouse-helper"
+version = "1.0.0"
+description = ""
+authors = ["Python Powerhouse"]
+readme = "README.md"
+packages = [{include = "powerhouse_assistant"}]
+
+[tool.poetry.dependencies]
+python = "3.10.10"
+prettytable = "^3.6.0"
+prompt-toolkit = "^3.0.38"
+pygame = "^2.3.0"
+openai = "^0.27.2"
+pillow = "^9.4.0"
+
+[tool.poetry.scripts]
+mth = "powerhouse_assistant.main:run"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
