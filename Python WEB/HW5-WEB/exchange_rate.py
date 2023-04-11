@@ -62,6 +62,8 @@ async def main() -> None:
 
     try:
         days_range = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+        if days_range > 10:
+            raise ValueError
     except ValueError:
         return "The range of days must be an integer and not exceed the value of 10"
 
