@@ -24,7 +24,7 @@ async def format_url(url: str, days_range: int = 1) -> list:
     return urls
 
 
-async def request(url: str):
+async def request(url: str) -> dict:
     async with ClientSession() as session:
         try:
             async with session.get(url) as response:
@@ -35,7 +35,7 @@ async def request(url: str):
             logging.error(f"Connection error: {url}", str(err))
 
 
-async def format_data(url):
+async def format_data(url: str) -> list:
     responce = await request(url)
     data = [rate for rate in responce["exchangeRate"] if rate["currency"] in CURRENCIES]
     data.append(responce["date"])
@@ -57,7 +57,7 @@ async def pretty_view(data: list) -> PrettyTable:
     return rate_table
 
 
-async def main() -> None:
+async def main() -> PrettyTable:
     url_pattern = "https://api.privatbank.ua/p24api/exchange_rates?date="
 
     try:
