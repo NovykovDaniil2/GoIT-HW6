@@ -67,8 +67,8 @@ async def pretty_view(exchange_data: tuple, currencies: list) -> PrettyTable:
     table_columns = await create_columns(currencies)
     rate_table = PrettyTable(table_columns)
     rate_data = await get_rate_data(exchange_data)
-    for day_date_date in rate_data:
-        rate_table.add_row(day_date_date)
+    for day_rate_date in rate_data:
+        rate_table.add_row(day_rate_date)
     return rate_table
 
 
