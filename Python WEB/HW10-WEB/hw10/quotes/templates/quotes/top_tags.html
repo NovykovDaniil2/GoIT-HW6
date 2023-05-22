@@ -1,0 +1,15 @@
+{% extends 'quotes/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'quotes/top_tags_style.css' %}">
+  <h1>Top 10 Tags</h1>
+  <div class="top_tags">
+    <ul>
+        {% for tag in tags %}
+          <a href="/tag/{{ tag.name }}" class="tag"><p class="tag">{{ tag.name }} - {{ tag.num_quotes }} quotes</p></a>
+        {% endfor %}
+      </ul>
+  </div>
+{% endblock %}

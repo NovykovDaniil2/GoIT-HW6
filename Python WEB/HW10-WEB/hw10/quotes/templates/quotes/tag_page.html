@@ -1,0 +1,54 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'quotes/tag_page_style.css' %}">
+<link rel="stylesheet" href="{% static 'quotes/index_style.css' %}">
+
+<h1>Quotes with tag: {{ tag_name }}</h1>
+<div class="scrollable">
+<ul>
+    <li>
+        <div class="quote-placeholder first">
+            <div class="quote-header">
+                <div class="quote-tags">
+                    {% for tag in first_quote.tags.all %}
+                        <a href="#" class="tag">{{tag.name}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="quote-body">
+                <p>{{first_quote.quote}}</p>
+            </div>
+            <div class="quote-footer">
+                {% for author in first_quote.author.all %}
+                    <p>{{ author.fullname }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </li>
+    {% for quote in quotes %}
+    <li>
+        <div class="quote-placeholder">
+            <div class="quote-header">
+                <div class="quote-tags">
+                    {% for tag in quote.tags.all %}
+                        <a href="#" class="tag">{{ tag.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="quote-body">
+                <p>{{quote.quote}}</p>
+            </div>
+            <div class="quote-footer">
+                {% for author in quote.author.all %}
+                    <p>{{ author.fullname }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>QuoteShare</title>  
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'quotes/base_style.css' %}">
+    <script lang="javascript">
+        function myData() {
+             retrun;
+             }
+ 
+         function show() {
+         document.getElementById('anotherFunction').classList.toggle('Active');
+         }
+     </script>
+  </head> 
+  <body> 
+    <nav class="navbar"> 
+      <ul> 
+        <li class="logo"><a href="{% url 'main' %}">QuoteShare</a></li> 
+        <li><a href="{% url 'top_tags' %}">Top Tags</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'quote' %}">Add Quote</a></li> 
+        <li><a href="{% url 'tag' %}">Add Tag</a></li> 
+        <li><a href="{% url 'author' %}">Add Author</a></li> 
+        <li><a href="{% url 'users:logout' %}" class="btn">Logout</a></li>
+        {% else %} 
+        <li><a href="{% url 'users:login' %}" class="btn">Sign In</a></li> 
+        <li><a href="{% url 'users:register' %}" class="btn">Sign Up</a></li> 
+        {% endif %}
+      </ul> 
+    </nav> 
+    <div class="line-w5"></div> 
+  {% block content %} {% endblock %}
+  </body> 
+</html>

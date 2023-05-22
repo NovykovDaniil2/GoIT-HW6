@@ -1,0 +1,35 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'quotes/form_style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+      <form action="{% url 'author' %}" method='post'>
+          {% csrf_token %}
+          <div class="form-group">
+            {{ form.fullname }}
+          </div>
+          <div class="form-group">
+            {{ form.born_date }}
+          </div>
+          <div class="form-group">
+           {{ form.born_location }}
+          </div>
+          <div class="form-group">
+            {{ form.biography }}
+          </div>
+          <div class="form-group">
+            <button type="submit">Submit</button>
+          </div>
+        <span>{{ form.errors }}</span>
+        </form>
+      </div>
+</body>
+</html>
+{% endblock %}

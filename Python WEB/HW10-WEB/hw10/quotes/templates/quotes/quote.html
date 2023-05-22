@@ -1,0 +1,43 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'quotes/form_style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+      <form action="{% url 'quote' %}" method='post'>
+          {% csrf_token %}
+          <div class="form-group">
+            <label>Quote</label>
+            {{ form.quote }}
+          </div>
+          <div class="form-group">
+            <label>Tags</label>
+            <select name="tags" multiple="multiple" required>
+                {% for tag in tags %}
+                <option value="{{tag.name}}">{{tag.name}}</option>
+                {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Author</label>
+            <select name="author"  required>
+                {% for author in authors %}
+                <option value="{{ author.fullname }}">{{ author.fullname }}</option>
+                {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="submit">Submit</button>
+          </div>
+          <span>{{ form.errors }}</span>
+        </form>
+      </div>
+</body>
+</html>
+{% endblock %}

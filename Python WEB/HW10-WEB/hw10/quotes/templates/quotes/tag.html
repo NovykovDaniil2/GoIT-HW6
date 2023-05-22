@@ -1,0 +1,27 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'quotes/form_style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+      <form action="{% url 'tag' %}" method='post'>
+          {% csrf_token %}
+          <div class="form-group">
+            {{form.name}}
+          </div>
+          <span>{{ form.errors.name }}</span>
+          <div class="form-group">
+            <button type="submit">Submit</button>
+          </div>
+          <span>{{ form.errors }}</span>
+        </form>
+      </div>
+</body>
+</html>
+{% endblock %}

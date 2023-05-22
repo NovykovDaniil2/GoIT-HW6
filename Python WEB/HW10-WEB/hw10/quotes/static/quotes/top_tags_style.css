@@ -1,0 +1,29 @@
+
+p {
+    background-color: #7d9bff; 
+    border-radius: 20px; 
+    padding: 5px 10px; 
+    margin-right: 40%; 
+    margin-left: 40%; 
+    text-align: center; 
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 10px;
+}
+
+p:hover { 
+    background-color: #89bffc; 
+    color: white; 
+    cursor: pointer; 
+} 
+
+h1 { 
+    text-align: center; 
+    color: #7d9bff; 
+    margin-top: 100px; 
+    padding: 100px; 
+}
+
+a {
+    text-decoration: none; 
+    color: inherit;
+}

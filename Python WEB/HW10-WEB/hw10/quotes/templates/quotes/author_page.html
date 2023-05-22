@@ -1,0 +1,22 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'quotes/base_style.css' %}">
+<link rel="stylesheet" href="{% static 'quotes/author_page_style.css' %}">
+
+<div class="container"> 
+    <h2>Fullname</h2> 
+    <label>{{ author.fullname }}</label> 
+    <h2>Born date</h2> 
+    <label>{{ author.born_date }}</label> 
+    <h2>Born location</h2> 
+    <label>{{ author.born_location }}</label> 
+    <h2>Biography</h2> 
+    <label class="bio">{{ author.biography }}</label> 
+  </div> 
+
+
+
+{% endblock %}

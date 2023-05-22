@@ -1,0 +1,88 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'quotes/index_style.css' %}">
+<style>
+    .previous-page, .next-page {
+  position: fixed;
+  bottom: 10px;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.previous-page {
+  left: 40%;
+}
+
+.next-page {
+  right: 40%;
+}
+
+    .page_btn {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 70px;
+  position: fixed;
+  bottom: 10px;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+</style>
+<h1>Quotes</h1>
+<ul>
+    {% for quote in page_obj.object_list %}
+    <li>
+        <div class="quote-placeholder">
+            <div class="quote-header">
+                <div class="quote-tags">
+                    {% for tag in quote.tags.all %}
+                    <a href="/tag/{{ tag.name }}" class="tag">{{tag.name}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="quote-body">
+                <p>{{quote.quote}}</p>
+            </div>
+            <div class="quote-footer">
+                {% for author in quote.author.all %}
+                <a href="/author/{{ author.fullname }}" class="author"><p class="author_name">{{ author.fullname }}</p></a>
+                {% endfor %}
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+<div class="pagination">
+    <span class="step-links">
+
+        <span class="current-page">
+            <h1>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</h1>
+        </span>
+
+        {% if page_obj.has_previous %}
+            <a class="previous-page" href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <a class="next-page" href="?page={{ page_obj.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

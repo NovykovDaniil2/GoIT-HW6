@@ -1,0 +1,25 @@
+{% extends "quotes/base.html" %} 
+ 
+{% block content %} 
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/form_style.css' %}">
+<h1>Sign In</h1>
+
+<div class="form-container">
+    <form method='post' action="{% url 'users:login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          {{form.username}}
+        </div>
+        <span>{{ form.errors.username }}</span>
+        <div class="form-group">
+          {{ form.password }}
+        </div>
+        <span>{{ form.errors.password }}</span>
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+      <span>{{ form.non_field_errors}}</span>
+    </div>
+{% endblock %}

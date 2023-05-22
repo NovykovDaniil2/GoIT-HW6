@@ -1,0 +1,84 @@
+
+.quote-placeholder {
+    background: linear-gradient(to bottom right, #3801ff, #e6e5e5);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 30px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    width: 60%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: white;
+    transition: background-color 0.5s ease-in-out;
+    margin-left: auto;
+    margin-right: auto;
+}
+.quote-placeholder.first {
+    margin-top: 100px;
+}
+
+.quote-placeholder:hover {
+    background-color: white;
+    color: black;
+}
+.quote-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.quote-header h2 {
+    font-size: 36px;
+    margin: 0;
+}
+.quote-tags {
+    display: flex;
+    margin-left: auto;
+}
+.tag {
+    background-color: white;
+    color: #7d9bff;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.tag:hover {
+    background-color: #7d9bff;
+    color: white;
+    cursor: pointer;
+}
+.quote-body {
+    margin-bottom: 10px;
+    font-size: 20;
+}
+.quote-footer {
+    background-color: white;
+    color: #7d9bff;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 40%;
+    margin-left: 40%;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+.quote-footer:hover {
+    background-color: #7d9bff;
+    color: white;
+    cursor: pointer;
+}
+
+.tag {
+    text-decoration: none;
+  }
+.author {
+    text-decoration: none;
+  }
+
+.author_name {
+    color: #7d9bff;
+}
+
+ul {
+    overflow:auto;
+}
