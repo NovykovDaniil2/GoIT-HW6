@@ -1,0 +1,13 @@
+python 
+redis
+fastapi 
+python-jose 
+passlib 
+python-multipart
+libgravatar 
+fastapi-mail 
+redis-lru 
+fastapi-limiter 
+cloudinary 
+sqlalchemy 
+psycopg2

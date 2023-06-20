@@ -1,0 +1,7 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: HW14-WEB
+    src: ./
+    engine: python3.9
+    primary: true
