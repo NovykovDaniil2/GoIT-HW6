@@ -141,7 +141,6 @@ async def update_contact(body: ContactModel, contact_id: int, db: Session = Depe
     return contact
 
 
-@cache
 @router.delete("/{contact_id}", response_model=ContactResponse, dependencies=[Depends(RateLimiter(times=15, seconds=60))])
 async def remove_contact(contact_id: int, db: Session = Depends(get_db), current_user: User = Depends(token_service.get_current_user)):
     """
