@@ -1,4 +1,4 @@
-FROM python:3.10.10
+FROM python:3.11.6
 ENV POETRY-MTH /main
 WORKDIR $POWERHOUSE
 COPY . .
